@@ -12,5 +12,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  // plugins: []  <-- Eskisi buydu, sil ve aşağıdakini yap:
+plugins: [
+  require('@tailwindcss/typography'),
+],
 };
