@@ -1,7 +1,7 @@
 // src/siteConfig.js
 export const siteConfig = {
   // GENEL KİMLİK
-  name: "Av. Ahmet Yılmaz", // Müşterinin adı buraya
+  name: "Av. Osman Özkaya", // Müşterinin adı buraya
   title: "Hukuk & Danışmanlık",
   description: "Ceza, Aile ve Ticaret hukuku alanında uzman avukatlık hizmetleri.",
   
