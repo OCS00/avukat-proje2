@@ -1,6 +1,6 @@
 // src/components/About.jsx
 import { CheckCircle2 } from "lucide-react";
-import { siteConfig } from "@/siteConfig"; // Verileri buradan çekiyor
+import { siteConfig } from "@/siteConfig";
 
 export default function About() {
   return (
@@ -8,22 +8,28 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
-          {/* Sol Taraf */}
+          {/* FOTOĞRAF ALANI (GÜNCELLENDİ) */}
           <div className="w-full lg:w-1/2 relative">
             <div className="relative aspect-[4/5] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium text-lg">
-                Fotoğraf Alanı
-              </div>
+              {/* İşte resmi burası çekiyor */}
+              <img 
+                src={siteConfig.profileImage} 
+                alt={siteConfig.name}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
             </div>
+            
+            {/* Dekoratif Kutu */}
             <div className="absolute -bottom-6 -right-6 w-2/3 h-2/3 border-2 border-slate-200 rounded-2xl -z-10"></div>
             
+            {/* Tecrübe Kutusu */}
             <div className="absolute bottom-8 left-8 bg-white p-6 rounded-xl shadow-xl border border-slate-100 max-w-xs">
               <p className="text-4xl font-bold text-slate-900 mb-1">{siteConfig.experience}</p>
               <p className="text-slate-600 text-sm font-medium uppercase tracking-wide">Yıllık Tecrübe</p>
             </div>
           </div>
 
-          {/* Sağ Taraf */}
+          {/* SAĞ TARAF (YAZILAR) */}
           <div className="w-full lg:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
               {siteConfig.bioTitle}
