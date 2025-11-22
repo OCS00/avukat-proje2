@@ -7,7 +7,7 @@ export const siteConfig = {
   
   // İLETİŞİM (Burayı değiştirince her yer değişir)
   phone: "+90 (532) 123 45 67",
-  email: "info@ahmetyilmaz.com",
+  email: "info@osmanozkaya.com",
   address: "Maslak Mah. Büyükdere Cad. No:123 Sarıyer/İstanbul",
   
   // HAKKIMDA KISMI
