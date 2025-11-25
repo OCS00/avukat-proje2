@@ -1,17 +1,21 @@
-import { Inter } from "next/font/google";
-import "./globals.css"; // <--- İŞTE SİHİRLİ KABLO BU!
+import { Inter, Playfair_Display } from "next/font/google"; // Playfair ekledik
+import "./globals.css";
+import { siteConfig } from "@/siteConfig";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" }); // Değişkeni tanımladık
 
 export const metadata = {
-  title: "Avukat Web Sitesi",
-  description: "Profesyonel Hukuki Danışmanlık",
+  title: siteConfig.name,
+  description: siteConfig.description,
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="tr">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.variable} ${playfair.variable} font-sans bg-slate-50`}>
+        {children}
+      </body>
     </html>
   );
 }

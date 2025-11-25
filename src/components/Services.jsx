@@ -4,33 +4,33 @@ import { Scale, Gavel, Users, FileText, ShieldAlert, Briefcase } from "lucide-re
 const services = [
   {
     title: "Ceza Hukuku",
-    desc: "Soruşturma ve kovuşturma aşamalarında müvekkillerimizin haklarını titizlikle savunuyoruz.",
-    icon: <Gavel size={32} className="text-blue-900" />
+    desc: "Ağır ceza ve asliye ceza mahkemelerindeki tüm süreçlerin titizlikle takibi.",
+    icon: <Gavel size={32} />
   },
   {
     title: "Aile & Boşanma",
-    desc: "Boşanma, velayet ve nafaka davalarında hassas ve çözüm odaklı hukuki destek sağlıyoruz.",
-    icon: <Users size={32} className="text-blue-900" />
+    desc: "Anlaşmalı ve çekişmeli boşanma, velayet, nafaka ve mal rejimi davaları.",
+    icon: <Users size={32} />
   },
   {
     title: "Ticaret Hukuku",
-    desc: "Şirketler için sözleşme hazırlama, danışmanlık ve ticari davalarda profesyonel ortaklık.",
-    icon: <Briefcase size={32} className="text-blue-900" />
+    desc: "Şirketler hukuku, sözleşmeler, birleşme ve devralma süreçleri danışmanlığı.",
+    icon: <Briefcase size={32} />
   },
   {
-    title: "Gayrimenkul Hukuku",
-    desc: "Tapu iptali, tescil davaları ve kira uyuşmazlıklarında uzmanlaşmış kadromuzla yanınızdayız.",
-    icon: <FileText size={32} className="text-blue-900" />
+    title: "Gayrimenkul",
+    desc: "Tapu iptal tescil, kira tespit ve tahliye davaları ile hukuki danışmanlık.",
+    icon: <FileText size={32} />
   },
   {
     title: "İcra ve İflas",
-    desc: "Alacak takibi ve tahsilat süreçlerinin hızlı ve etkin bir şekilde yürütülmesini sağlıyoruz.",
-    icon: <Scale size={32} className="text-blue-900" />
+    desc: "Alacak takibi, haciz işlemleri ve iflas erteleme süreçlerinin yönetimi.",
+    icon: <Scale size={32} />
   },
   {
     title: "İdare Hukuku",
-    desc: "Devlet kurumlarıyla yaşanan uyuşmazlıklarda ve iptal davalarında hukuki süreç yönetimi.",
-    icon: <ShieldAlert size={32} className="text-blue-900" />
+    desc: "İdari işlemlerin iptali ve tam yargı davalarında hukuki temsil hizmeti.",
+    icon: <ShieldAlert size={32} />
   }
 ];
 
@@ -39,31 +39,29 @@ export default function Services() {
     <section className="py-24 bg-white" id="uzmanliklar">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Bölüm Başlığı */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Uzmanlık Alanlarımız
+          <span className="text-[#c5a47e] font-bold tracking-widest uppercase text-xs mb-2 block">
+            Çalışma Alanlarımız
+          </span>
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#0f172a] mb-6">
+            Uzmanlık ve Faaliyet Alanları
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Hukukun çeşitli alanlarında edindiğimiz tecrübe ile sorunlarınıza 
-            etkili ve kalıcı çözümler üretiyoruz.
-          </p>
+          <div className="w-24 h-1 bg-[#c5a47e] mx-auto"></div>
         </div>
 
-        {/* Kartlar Izgarası (Grid) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="group p-8 bg-slate-50 rounded-xl border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group p-10 bg-[#f8f9fa] border border-gray-200 hover:bg-[#0f172a] hover:border-[#0f172a] transition-all duration-500 rounded-sm"
             >
-              <div className="bg-white w-16 h-16 rounded-lg flex items-center justify-center mb-6 shadow-sm group-hover:bg-blue-50 transition-colors">
+              <div className="text-[#c5a47e] mb-6 group-hover:scale-110 transition-transform duration-500">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-xl font-playfair font-bold text-[#0f172a] group-hover:text-white mb-4 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-gray-600 group-hover:text-gray-400 leading-relaxed text-sm transition-colors">
                 {service.desc}
               </p>
             </div>

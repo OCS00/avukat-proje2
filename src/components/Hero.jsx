@@ -1,76 +1,65 @@
 // src/components/Hero.jsx
-"use client";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
+import { siteConfig } from "@/siteConfig";
 
 export default function Hero() {
   return (
-    <section className="relative bg-slate-50 pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <div className="lg:w-2/3">
-          {/* Animasyonlu Alt Başlık */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-6 border border-blue-100"
-          >
-            <ShieldCheck size={16} />
-            Güvenilir Hukuki Çözümler
-          </motion.div>
-          
-          {/* Ana Başlık */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold text-slate-900 leading-tight mb-6"
-          >
-            Adalet arayışınızda <br/>
-            <span className="text-slate-600">güçlü ortağınız.</span>
-          </motion.h1>
-          
-          {/* Açıklama */}
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-slate-600 mb-10 max-w-xl leading-relaxed"
-          >
-            Karmaşık hukuki süreçlerde yanınızdayız. Ceza, Aile ve Ticaret hukuku alanlarında 
-            yılların getirdiği deneyimle haklarınızı profesyonelce savunuyoruz.
-          </motion.p>
-          
-          {/* Butonlar */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Link 
-              href="/iletisim" 
-              className="flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/20"
-            >
-              Ücretsiz Danışma
-              <ArrowRight size={20} />
-            </Link>
-            <Link 
-              href="/uzmanliklar" 
-              className="flex items-center justify-center px-8 py-4 rounded-lg text-lg font-medium text-slate-700 border border-slate-300 hover:bg-white hover:shadow-md transition-all"
-            >
-              Hizmetlerimiz
-            </Link>
-          </motion.div>
-        </div>
-
-      </div>
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       
-      {/* Arka Plan Dekoru (Bulanık Mavi Işık) */}
-      <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
-      <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-72 h-72 bg-slate-300 rounded-full blur-3xl opacity-30"></div>
+      {/* 1. ARKA PLAN RESMİ (Üzerine koyu filtre atılmış) */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          // Buraya daha sonra 'avukat ofisi' gibi kaliteli bir resim koyabilirsin
+          src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2070&auto=format&fit=crop" 
+          alt="Hukuk Bürosu" 
+          className="w-full h-full object-cover"
+        />
+        {/* Koyu Lacivert Filtre (Resmi karartır ki yazı okunsun) */}
+        <div className="absolute inset-0 bg-[#0f172a]/80 mix-blend-multiply"></div>
+      </div>
+
+      {/* 2. ORTA YAZI ALANI */}
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+        
+        {/* Üstteki küçük altın yazı */}
+        <span className="inline-block py-1 px-3 border border-[#c5a47e]/30 text-[#c5a47e] text-xs font-bold tracking-[0.2em] uppercase mb-6 bg-[#0f172a]/50 backdrop-blur-sm rounded-sm">
+          Profesyonel Hukuki Çözümler
+        </span>
+        
+        {/* Ana Başlık */}
+        <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white leading-tight mb-8 drop-shadow-lg">
+          Adalet, Güven ve <br/>
+          <span className="text-[#c5a47e] italic">Tecrübe.</span>
+        </h1>
+        
+        {/* Alt Açıklama */}
+        <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+          {siteConfig.description} Hukuki süreçlerinizde şeffaf, sonuç odaklı ve profesyonel bir yaklaşım sunuyoruz.
+        </p>
+        
+        {/* Butonlar */}
+        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+          <Link 
+            href="/iletisim" 
+            className="bg-[#c5a47e] text-[#0f172a] px-8 py-4 rounded-sm text-sm font-bold tracking-widest uppercase hover:bg-white transition-all duration-300 shadow-xl"
+          >
+            Ücretsiz Danışma
+          </Link>
+          <Link 
+            href="/uzmanliklar" 
+            className="border border-white/20 text-white px-8 py-4 rounded-sm text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-[#0f172a] transition-all duration-300 backdrop-blur-sm"
+          >
+            Uzmanlıklarımız
+          </Link>
+        </div>
+      </div>
+
+      {/* 3. AŞAĞI KAYDIR İKONU (Animasyonlu) */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-400">
+        <ArrowDown size={32} strokeWidth={1} />
+      </div>
+
     </section>
   );
 }

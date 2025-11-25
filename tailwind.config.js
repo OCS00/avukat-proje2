@@ -8,12 +8,20 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'],
+        sans: ['var(--font-inter)'],     // Düz yazılar için
+        playfair: ['var(--font-playfair)'], // Başlıklar için (O sitenin aynısı)
       },
+      colors: {
+        navy: {
+          900: "#0f172a", // O sitenin koyu laciverti
+        },
+        gold: {
+          500: "#c5a47e", // O sitenin altın rengi
+        }
+      }
     },
   },
-  // plugins: []  <-- Eskisi buydu, sil ve aşağıdakini yap:
-plugins: [
-  require('@tailwindcss/typography'),
-],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
