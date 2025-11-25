@@ -4,55 +4,58 @@ import { siteConfig } from "@/siteConfig";
 
 export default function About() {
   return (
-    <section className="py-24 bg-slate-50 overflow-hidden" id="hakkimda">
+    // Arka plan koyu (#0f172a)
+    <section className="py-24 bg-[#0f172a] overflow-hidden border-t border-gray-900" id="hakkimda">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
-          {/* FOTOĞRAF ALANI (GÜNCELLENDİ) */}
+          {/* FOTOĞRAF ALANI */}
           <div className="w-full lg:w-1/2 relative">
-            <div className="relative aspect-[4/5] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-2xl">
-              {/* İşte resmi burası çekiyor */}
+            <div className="relative aspect-[4/5] w-full bg-gray-800 rounded-sm overflow-hidden shadow-2xl border border-gray-700">
               <img 
                 src={siteConfig.profileImage} 
                 alt={siteConfig.name}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 opacity-90 hover:opacity-100"
               />
             </div>
             
-            {/* Dekoratif Kutu */}
-            <div className="absolute -bottom-6 -right-6 w-2/3 h-2/3 border-2 border-slate-200 rounded-2xl -z-10"></div>
+            {/* Dekoratif Kutu (Altın Rengi Yaptık) */}
+            <div className="absolute -bottom-4 -right-4 w-2/3 h-2/3 border border-[#c5a47e]/30 rounded-sm -z-10"></div>
             
-            {/* Tecrübe Kutusu */}
-            <div className="absolute bottom-8 left-8 bg-white p-6 rounded-xl shadow-xl border border-slate-100 max-w-xs">
-              <p className="text-4xl font-bold text-slate-900 mb-1">{siteConfig.experience}</p>
-              <p className="text-slate-600 text-sm font-medium uppercase tracking-wide">Yıllık Tecrübe</p>
+            {/* Tecrübe Kutusu (Koyu Tasarım) */}
+            <div className="absolute bottom-8 left-8 bg-[#1e293b] p-6 rounded-sm shadow-2xl border border-gray-700 max-w-xs">
+              <p className="text-4xl font-bold text-[#c5a47e] mb-1">{siteConfig.experience}</p>
+              <p className="text-gray-400 text-xs font-bold uppercase tracking-wide">Yıllık Tecrübe</p>
             </div>
           </div>
 
-          {/* SAĞ TARAF (YAZILAR) */}
+          {/* YAZI ALANI */}
           <div className="w-full lg:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+            <span className="text-[#c5a47e] font-bold tracking-widest uppercase text-xs mb-4 block">
+              Hakkımızda
+            </span>
+            <h2 className="text-3xl md:text-5xl font-playfair font-bold text-white mb-8 leading-tight">
               {siteConfig.bioTitle}
             </h2>
             
-            <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+            <p className="text-lg text-gray-400 mb-8 leading-relaxed font-light">
               {siteConfig.shortBio}
             </p>
             
-            <div className="space-y-4 mb-10">
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="text-blue-700" size={20} />
-                <span className="text-slate-700 font-medium">Ulaşılabilir ve Şeffaf İletişim</span>
+            <div className="space-y-4 mb-12">
+              <div className="flex items-center gap-4">
+                <CheckCircle2 className="text-[#c5a47e]" size={22} />
+                <span className="text-gray-300">Ulaşılabilir ve Şeffaf İletişim</span>
               </div>
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="text-blue-700" size={20} />
-                <span className="text-slate-700 font-medium">Stratejik Hukuki Planlama</span>
+              <div className="flex items-center gap-4">
+                <CheckCircle2 className="text-[#c5a47e]" size={22} />
+                <span className="text-gray-300">Stratejik Hukuki Planlama</span>
               </div>
             </div>
 
-            <div className="border-t border-slate-200 pt-8">
-              <h4 className="text-xl font-bold text-slate-900">{siteConfig.name}</h4>
-              <p className="text-slate-500">Kurucu Avukat</p>
+            <div className="border-t border-gray-800 pt-8">
+              <h4 className="text-2xl font-playfair text-white">{siteConfig.name}</h4>
+              <p className="text-[#c5a47e] text-sm tracking-widest uppercase mt-1">Kurucu Avukat</p>
             </div>
           </div>
 

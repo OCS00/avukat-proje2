@@ -36,14 +36,16 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24 bg-white" id="uzmanliklar">
+    // Arka planı koyu lacivert yaptık (#0f172a)
+    <section className="py-24 bg-[#0f172a]" id="uzmanliklar">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
           <span className="text-[#c5a47e] font-bold tracking-widest uppercase text-xs mb-2 block">
             Çalışma Alanlarımız
           </span>
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#0f172a] mb-6">
+          {/* Başlık rengini Beyaz yaptık */}
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-6">
             Uzmanlık ve Faaliyet Alanları
           </h2>
           <div className="w-24 h-1 bg-[#c5a47e] mx-auto"></div>
@@ -53,15 +55,16 @@ export default function Services() {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="group p-10 bg-[#f8f9fa] border border-gray-200 hover:bg-[#0f172a] hover:border-[#0f172a] transition-all duration-500 rounded-sm"
+              // Kart arka planını biraz daha açık koyu (#1e293b) yaptık
+              className="group p-10 bg-[#1e293b] border border-gray-800 hover:border-[#c5a47e] transition-all duration-500 rounded-sm hover:-translate-y-2"
             >
               <div className="text-[#c5a47e] mb-6 group-hover:scale-110 transition-transform duration-500">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-playfair font-bold text-[#0f172a] group-hover:text-white mb-4 transition-colors">
+              <h3 className="text-xl font-playfair font-bold text-white mb-4 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-600 group-hover:text-gray-400 leading-relaxed text-sm transition-colors">
+              <p className="text-gray-400 leading-relaxed text-sm transition-colors">
                 {service.desc}
               </p>
             </div>
