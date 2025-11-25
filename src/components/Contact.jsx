@@ -1,83 +1,109 @@
-// src/components/Contact.jsx
-import { Phone, Mail, MapPin, Send } from "lucide-react";
-import { siteConfig } from "@/siteConfig"; // Verileri buradan çekiyor
+"use client";
+import { Phone, Mail, MapPin, Send, CheckCircle } from "lucide-react";
+import { siteConfig } from "@/siteConfig";
+import { useState } from "react";
 
 export default function Contact() {
+  const [result, setResult] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setResult("Gonderiliyor...");
+    const formData = new FormData(e.target);
+    formData.append("access_key", siteConfig.formAccessKey);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      setResult("Basarili");
+      e.target.reset();
+    } else {
+      setResult("Hata");
+    }
+  }
+
   return (
-    <section className="py-24 bg-slate-50" id="iletisim">
+    <section className="py-24 bg-[#f8f9fa]" id="iletisim">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            İletişime Geçin
+          <span className="text-[#c5a47e] font-bold tracking-widest uppercase text-xs mb-2 block">İletişim</span>
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#0f172a] mb-6">
+            Bizimle İletişime Geçin
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
-            Hukuki problemleriniz için ücretsiz ön görüşme talep edebilirsiniz.
-          </p>
+          <div className="w-24 h-1 bg-[#c5a47e] mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
-          <div className="space-y-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="text-xl font-bold text-slate-900 mb-6">İletişim Bilgileri</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-50 p-3 rounded-lg text-blue-700">
-                    <Phone size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 font-medium uppercase tracking-wide">Telefon</p>
-                    <p className="text-lg font-semibold text-slate-900">{siteConfig.phone}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-50 p-3 rounded-lg text-blue-700">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 font-medium uppercase tracking-wide">E-Posta</p>
-                    <p className="text-lg font-semibold text-slate-900">{siteConfig.email}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-50 p-3 rounded-lg text-blue-700">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 font-medium uppercase tracking-wide">Ofis Adresi</p>
-                    <p className="text-lg font-semibold text-slate-900">
-                      {siteConfig.address}
-                    </p>
-                  </div>
-                </div>
+          {/* SOL TARAF - BİLGİ KUTULARI */}
+          <div className="space-y-6">
+            <div className="bg-white p-10 border border-gray-200 shadow-sm hover:border-[#c5a47e] transition-colors group">
+              <div className="w-12 h-12 bg-[#0f172a] text-[#c5a47e] flex items-center justify-center mb-6 group-hover:bg-[#c5a47e] group-hover:text-[#0f172a] transition-colors">
+                <Phone size={24} />
               </div>
+              <h3 className="text-xl font-playfair font-bold text-[#0f172a] mb-2">Telefon</h3>
+              <p className="text-gray-600">{siteConfig.phone}</p>
+            </div>
+
+            <div className="bg-white p-10 border border-gray-200 shadow-sm hover:border-[#c5a47e] transition-colors group">
+              <div className="w-12 h-12 bg-[#0f172a] text-[#c5a47e] flex items-center justify-center mb-6 group-hover:bg-[#c5a47e] group-hover:text-[#0f172a] transition-colors">
+                <Mail size={24} />
+              </div>
+              <h3 className="text-xl font-playfair font-bold text-[#0f172a] mb-2">E-Posta</h3>
+              <p className="text-gray-600">{siteConfig.email}</p>
+            </div>
+
+            <div className="bg-white p-10 border border-gray-200 shadow-sm hover:border-[#c5a47e] transition-colors group">
+              <div className="w-12 h-12 bg-[#0f172a] text-[#c5a47e] flex items-center justify-center mb-6 group-hover:bg-[#c5a47e] group-hover:text-[#0f172a] transition-colors">
+                <MapPin size={24} />
+              </div>
+              <h3 className="text-xl font-playfair font-bold text-[#0f172a] mb-2">Ofis Adresi</h3>
+              <p className="text-gray-600">{siteConfig.address}</p>
             </div>
           </div>
 
-          {/* Form aynı kalıyor */}
-          <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border border-slate-100">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Mesaj Gönderin</h3>
-            <form className="space-y-6">
-              <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">Adınız Soyadınız</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none transition-all" placeholder="İsim Soyisim" />
+          {/* SAĞ TARAF - FORM */}
+          <div className="bg-white p-10 lg:p-12 border border-gray-200 shadow-lg relative">
+            {result === "Basarili" ? (
+              <div className="absolute inset-0 bg-white flex flex-col items-center justify-center text-center p-8">
+                <CheckCircle size={64} className="text-green-600 mb-4" />
+                <h3 className="text-2xl font-playfair font-bold text-[#0f172a]">Mesajınız İletildi</h3>
+                <p className="text-gray-600 mt-2">En kısa sürede size dönüş yapacağız.</p>
+                <button onClick={() => setResult("")} className="mt-6 text-[#c5a47e] font-bold uppercase text-sm tracking-widest underline">Yeni Mesaj</button>
               </div>
-              <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">Telefon</label>
-                  <input type="tel" className="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none transition-all" placeholder="05XX..." />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-700">Mesajınız</label>
-                <textarea rows="4" className="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none transition-all"></textarea>
-              </div>
-              <button className="w-full bg-slate-900 text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition-all flex items-center justify-center gap-2">
-                Mesajı Gönder <Send size={18} />
-              </button>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <h3 className="text-2xl font-playfair font-bold text-[#0f172a] mb-6">Randevu Talep Formu</h3>
+                
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Ad Soyad</label>
+                  <input type="text" name="name" required className="w-full bg-[#f8f9fa] border border-gray-200 p-4 outline-none focus:border-[#c5a47e] transition-colors" />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Telefon</label>
+                  <input type="tel" name="phone" required className="w-full bg-[#f8f9fa] border border-gray-200 p-4 outline-none focus:border-[#c5a47e] transition-colors" />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Konu / Mesaj</label>
+                  <textarea name="message" rows="4" required className="w-full bg-[#f8f9fa] border border-gray-200 p-4 outline-none focus:border-[#c5a47e] transition-colors"></textarea>
+                </div>
+
+                <button 
+                  type="submit" 
+                  disabled={result === "Gonderiliyor..."}
+                  className="w-full bg-[#0f172a] text-white font-bold py-4 uppercase tracking-widest text-sm hover:bg-[#c5a47e] hover:text-[#0f172a] transition-all disabled:opacity-70"
+                >
+                  {result === "Gonderiliyor..." ? "Gönderiliyor..." : "Mesajı Gönder"}
+                </button>
+              </form>
+            )}
           </div>
 
         </div>
