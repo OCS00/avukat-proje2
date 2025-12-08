@@ -1,6 +1,6 @@
 "use client";
 import { Phone, Mail, MapPin, Send, CheckCircle } from "lucide-react";
-import { siteConfig } from "@/siteConfig";
+import { siteConfig } from "@/data/siteConfig";
 import { useState } from "react";
 
 export default function Contact() {

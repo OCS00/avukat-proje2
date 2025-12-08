@@ -1,7 +1,7 @@
 // src/app/uzmanliklar/[slug]/page.js
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { servicesData } from "@/servicesData";
+import { servicesData } from "@/data/servicesData";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";

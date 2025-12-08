@@ -1,6 +1,6 @@
 import { Scale, Linkedin, Twitter, Instagram, MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
-import { siteConfig } from "@/siteConfig";
+import { siteConfig } from "@/data/siteConfig";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

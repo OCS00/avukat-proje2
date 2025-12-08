@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ...mevcut kodlar... */
+
+/* Özelleştirilmiş Kaydırma Çubuğu */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Çubuğun Yolu (Arka Plan) - Koyu Lacivert */
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+/* Çubuğun Kendisi (Tutulan Kısım) - Altın */
+::-webkit-scrollbar-thumb {
+  background: #c5a47e;
+  border-radius: 4px;
+  border: 2px solid #0f172a; /* Etrafına ince boşluk bırakır */
+}
+
+/* Üzerine gelince rengi */
+::-webkit-scrollbar-thumb:hover {
+  background: #e0bb8e;
+}
+
+/* Yazı Seçim Rengi (Müşteri yazıyı seçerse Altın olsun) */
+::selection {
+  background-color: #c5a47e;
+  color: #0f172a;
+}

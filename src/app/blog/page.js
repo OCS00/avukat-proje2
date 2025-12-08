@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { blogPosts } from "@/blogData"; // Veriyi çekiyoruz
+import { blogPosts } from "@/data/blogData"; // Veriyi çekiyoruz
 import { Calendar, ArrowRight } from "lucide-react";
 
 export default function BlogPage() {

@@ -1,7 +1,7 @@
 // src/components/WhatsAppBtn.jsx
 "use client";
 import { MessageCircle } from "lucide-react";
-import { siteConfig } from "@/siteConfig";
+import { siteConfig } from "@/data/siteConfig";
 
 export default function WhatsAppBtn() {
   // Telefon numarasındaki boşlukları ve parantezleri temizleyip saf numara yapar

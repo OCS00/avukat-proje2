@@ -1,7 +1,7 @@
 // src/app/blog/[id]/page.js
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { blogPosts } from "@/blogData";
+import { blogPosts } from "@/data/blogData";
 import { Calendar, ArrowLeft, Share2 } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";

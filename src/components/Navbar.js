@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Scale, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { siteConfig } from "@/siteConfig";
+import { siteConfig } from "@/data/siteConfig";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

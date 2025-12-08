@@ -1,7 +1,7 @@
 // src/components/Hero.jsx
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
-import { siteConfig } from "@/siteConfig";
+import { siteConfig } from "@/data/siteConfig";
 
 export default function Hero() {
   return (

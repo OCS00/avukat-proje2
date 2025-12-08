@@ -1,6 +1,6 @@
 // src/components/About.jsx
 import { CheckCircle2 } from "lucide-react";
-import { siteConfig } from "@/siteConfig";
+import { siteConfig } from "@/data/siteConfig";
 
 export default function About() {
   return (

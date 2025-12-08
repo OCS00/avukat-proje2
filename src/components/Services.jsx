@@ -1,6 +1,6 @@
 // src/components/Services.jsx
 import Link from "next/link";
-import { servicesData } from "@/servicesData"; // Veriyi buradan alıyoruz
+import { servicesData } from "@/data/servicesData"; // Veriyi buradan alıyoruz
 
 export default function Services() {
   return (

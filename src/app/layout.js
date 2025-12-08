@@ -1,6 +1,6 @@
 import { Inter, Playfair_Display } from "next/font/google"; // Playfair ekledik
 import "./globals.css";
-import { siteConfig } from "@/siteConfig";
+import { siteConfig } from "@/data/siteConfig";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" }); // Değişkeni tanımladık
