@@ -11,6 +11,7 @@ export const siteConfig = {
   // İLETİŞİM
   phone: "+90 (545) 932 00 15",
   email: "info@osmanozkaya.com",
+  sheetDbUrl: "https://sheetdb.io/api/v1/d3159gh4lnd5e",
   address: "Maslak Mah. Büyükdere Cad. No:123 Sarıyer/İstanbul",
   
   // HAKKIMDA KISMI
