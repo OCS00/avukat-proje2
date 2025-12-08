@@ -1,6 +1,6 @@
 "use client";
 import { Phone, Mail, MapPin, Send, CheckCircle, Loader2 } from "lucide-react";
-import { siteConfig } from "@/siteConfig"; // Veya "@/data/siteConfig" (Dosyan neredeyse)
+import { siteConfig } from "@/data/siteConfig";// Veya "@/data/siteConfig" (Dosyan neredeyse)
 import { useState } from "react";
 
 export default function Contact() {
