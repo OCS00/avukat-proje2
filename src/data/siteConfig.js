@@ -21,8 +21,8 @@ export const siteConfig = {
   
   // SOSYAL MEDYA
   social: {
-    instagram: "https://instagram.com",
+    instagram: "https://www.instagram.com/av.osmanozkaya/",
     twitter: "https://twitter.com",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/osman-%C3%B6zkaya-292926182/",
   }
 };

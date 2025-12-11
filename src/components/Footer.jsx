@@ -87,7 +87,7 @@ export default function Footer() {
 
         {/* ALT ÇİZGİ */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>&copy; {currentYear} {siteConfig.name}. Tüm hakları saklıdır. Made by Ocs Web Desing</p>
+          <p>&copy; {currentYear} {siteConfig.name}. Tüm hakları saklıdır. Designed by OCS Creative </p>
           <div className="flex gap-6">
             <span>Gizlilik Politikası</span>
             <span>Kullanım Şartları</span>
