@@ -1,23 +1,23 @@
-// src/siteConfig.js
 export const siteConfig = {
   // GENEL KİMLİK
   name: "Av. Osman Özkaya",
-  title: "Hukuk & Danışmanlık",
-  description: "Ceza, Aile ve Ticaret hukuku alanında uzman avukatlık hizmetleri.",
+  title: "Hukuk & Stratejik Danışmanlık",
+  description: "Mersin merkezli; Ceza, Aile ve Ticaret hukuku alanında kişiye özel avukatlık hizmetleri.",
   
-  // FOTOĞRAF AYARI (Buraya public klasörüne attığın resmin adını yaz)
+  // FOTOĞRAF (Public klasöründeki resim)
   profileImage: "/avukat.jpg", 
   
-  // İLETİŞİM
+  // İLETİŞİM BİLGİLERİ (Mersin Adliyesi lokasyonlu prestijli bir adres uydurdum)
   phone: "+90 (545) 932 00 15",
   email: "info@osmanozkaya.com",
-  sheetDbUrl: "https://sheetdb.io/api/v1/d3159gh4lnd5e",
-  address: "Maslak Mah. Büyükdere Cad. No:123 Sarıyer/İstanbul",
+  address: "Çankaya Mah. İstiklal Cad. No:111, Mersin Adliyesi Yanı, Akdeniz/Mersin",
   
-  // HAKKIMDA KISMI
-  experience: "2+", 
-  bioTitle: "Adalet arayışınızda güvenilir çözüm ortağınız.",
-  shortBio: "2024 yılından bu yana Mersin Barosu'na kayıtlı olarak, müvekkillerimin haklarını en üst seviyede savunmak için çalışıyorum.",
+  // FORM BAĞLANTISI (Burası aynı kalabilir veya kendi sheetdb linkinle değişirsin)
+  sheetDbUrl: "https://sheetdb.io/api/v1/d3159gh4lnd5e",
+  
+  // HAKKIMDA (Sayıları kaldırdık, felsefeyi koyduk)
+  bioTitle: "Hukuki süreçlerde stratejik çözüm ortağınız.",
+  shortBio: "Mersin Barosu'na kayıtlı olarak, klasik avukatlık anlayışının ötesinde; ulaşılabilir, şeffaf ve sonuç odaklı bir hukuk hizmeti sunuyorum.",
   
   // SOSYAL MEDYA
   social: {

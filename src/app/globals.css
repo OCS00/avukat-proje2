@@ -2,31 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ...mevcut kodlar... */
-
-/* Özelleştirilmiş Kaydırma Çubuğu */
-::-webkit-scrollbar {
-  width: 10px;
+:root {
+  --background: #0f172a;
+  --foreground: #e2e8f0;
 }
 
-/* Çubuğun Yolu (Arka Plan) - Koyu Lacivert */
-::-webkit-scrollbar-track {
-  background: #0f172a;
+/* YENİ EKLEMELER: MODERN TİPOGRAFİ AYARLARI */
+@layer base {
+  html {
+    /* Yazıların daha ince ve net görünmesini sağlar */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    /* Başlıkların harf aralığını biraz daraltmak daha modern durur */
+    @apply font-playfair tracking-tight; 
+  }
+
+  p {
+    /* Paragraf satır aralıklarını açmak okumayı kolaylaştırır ve lüks hissettirir */
+    @apply leading-relaxed tracking-wide;
+  }
 }
 
-/* Çubuğun Kendisi (Tutulan Kısım) - Altın */
-::-webkit-scrollbar-thumb {
-  background: #c5a47e;
-  border-radius: 4px;
-  border: 2px solid #0f172a; /* Etrafına ince boşluk bırakır */
+/* Başlıkların satır sonlarında kelime bölünmesini engeller, dengeli durur */
+h1, h2 {
+  text-wrap: balance;
 }
 
-/* Üzerine gelince rengi */
-::-webkit-scrollbar-thumb:hover {
-  background: #e0bb8e;
+p {
+  text-wrap: pretty;
 }
 
-/* Yazı Seçim Rengi (Müşteri yazıyı seçerse Altın olsun) */
+/* Seçilen metin rengi ayarı */
 ::selection {
   background-color: #c5a47e;
   color: #0f172a;

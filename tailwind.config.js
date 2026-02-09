@@ -8,20 +8,32 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'],     // Düz yazılar için
-        playfair: ['var(--font-playfair)'], // Başlıklar için (O sitenin aynısı)
+        // 'sans' varsayılan fonttur, Jakarta yapıyoruz
+        sans: ['var(--font-jakarta)', 'ui-sans-serif', 'system-ui'],
+        // 'playfair' yerine artık 'serif' veya 'display' diyebiliriz ama kodlarını bozmamak için playfair ismini koruyup yeni fontu atayalım
+        playfair: ['var(--font-dm-serif)', 'serif'], 
       },
       colors: {
-        navy: {
-          900: "#0f172a", // O sitenin koyu laciverti
-        },
-        gold: {
-          500: "#c5a47e", // O sitenin altın rengi
-        }
-      }
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+      },
     },
+    animation: {
+  marquee: 'marquee 25s linear infinite',
+  marquee2: 'marquee2 25s linear infinite',
+  },
+  keyframes: {
+  marquee: {
+    '0%': { transform: 'translateX(0%)' },
+    '100%': { transform: 'translateX(-100%)' },
+  },
+  marquee2: {
+    '0%': { transform: 'translateX(100%)' },
+    '100%': { transform: 'translateX(0%)' },
+  },
+}
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    require('@tailwindcss/typography'), // Eğer yüklü değilse: npm install @tailwindcss/typography
   ],
 };

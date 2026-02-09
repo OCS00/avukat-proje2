@@ -1,69 +1,82 @@
-// src/components/Faq.jsx
 "use client";
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
-import { faqs } from "@/data/content"; // Verileri buradan çekiyoruz
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus, MessageCircle } from "lucide-react";
+
+const faqs = [
+  {
+    q: "Boşanma davası ne kadar sürer?",
+    a: "Anlaşmalı boşanma davaları genellikle tek celsede (1-3 ay) sonuçlanır. Çekişmeli boşanma davaları ise mahkemenin iş yüküne ve delil durumuna göre 1.5 - 3 yıl arasında sürebilir."
+  },
+  {
+    q: "Avukatlık ücreti neye göre belirlenir?",
+    a: "Avukatlık Asgari Ücret Tarifesi taban alınarak; davanın türü, karmaşıklığı ve harcanacak mesaiye göre karşılıklı anlaşma ile belirlenir."
+  },
+  {
+    q: "Dava açmadan önce danışmanlık almalı mıyım?",
+    a: "Kesinlikle. Hukuki sürecin en başında yapılan stratejik hatalar, davanın kaybedilmesine neden olabilir. Önleyici hukuk hizmeti bu riskleri minimize eder."
+  },
+  {
+    q: "Hangi şehirlere hizmet veriyorsunuz?",
+    a: "Merkez ofisimiz Mersin'de olmakla birlikte, Türkiye'nin 81 ilindeki davalarınız için hukuki destek sağlamaktayız."
+  }
+];
 
 export default function Faq() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-24 bg-[#0f172a]" id="faq">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#0f172a] relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-4 relative z-10">
         
-        {/* BAŞLIK ALANI */}
         <div className="text-center mb-16">
-          <span className="text-[#c5a47e] font-bold tracking-widest uppercase text-xs mb-2 block">
+          <span className="text-[#c5a47e] font-bold tracking-[0.2em] uppercase text-xs mb-4 inline-block px-3 py-1 border border-[#c5a47e]/30 rounded-full">
             Merak Edilenler
           </span>
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-playfair font-bold text-white mb-6">
             Sıkça Sorulan Sorular
           </h2>
-          <div className="w-24 h-1 bg-[#c5a47e] mx-auto"></div>
+          <p className="text-gray-400 font-light text-lg">
+            Aklınıza takılan soruların cevaplarını burada bulabilirsiniz.
+          </p>
         </div>
 
-        {/* SORULAR LİSTESİ */}
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {faqs.map((item, index) => (
             <div 
-              key={index} 
-              className={`border rounded-sm transition-all duration-300 ${
-                openIndex === index 
-                  ? "bg-[#1e293b] border-[#c5a47e]" 
-                  : "bg-[#1e293b] border-gray-800 hover:border-gray-600"
+              key={index}
+              className={`border transition-all duration-300 rounded-sm overflow-hidden ${
+                activeIndex === index 
+                  ? "border-[#c5a47e] bg-[#1e293b]" 
+                  : "border-gray-800 bg-[#1e293b]/50 hover:border-gray-600"
               }`}
             >
               <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-6 text-left"
               >
-                <span className={`font-playfair font-bold text-lg transition-colors ${
-                  openIndex === index ? "text-[#c5a47e]" : "text-white"
-                }`}>
-                  {faq.question}
+                <span className={`text-lg font-playfair font-bold transition-colors ${activeIndex === index ? "text-[#c5a47e]" : "text-white"}`}>
+                  {item.q}
                 </span>
-                
-                {openIndex === index ? (
-                  <div className="bg-[#c5a47e] rounded-full p-1 text-[#0f172a]">
-                    <Minus size={16} strokeWidth={3} />
-                  </div>
-                ) : (
-                  <div className="bg-gray-700 rounded-full p-1 text-gray-400">
-                    <Plus size={16} strokeWidth={3} />
-                  </div>
-                )}
-              </button>
-              
-              {/* Açılır Kapanır Alan */}
-              <div 
-                className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                  openIndex === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                <div className="p-6 pt-0 text-gray-400 leading-relaxed text-sm border-t border-gray-700/50 mt-2">
-                  {faq.answer}
+                <div className={`p-2 rounded-full transition-colors ${activeIndex === index ? "bg-[#c5a47e] text-[#0f172a]" : "bg-gray-800 text-gray-400"}`}>
+                  {activeIndex === index ? <Minus size={16} /> : <Plus size={16} />}
                 </div>
-              </div>
+              </button>
+
+              <AnimatePresence>
+                {activeIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-6 pt-0 text-gray-300 font-light leading-relaxed border-t border-gray-700/50 mt-2">
+                      {item.a}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
