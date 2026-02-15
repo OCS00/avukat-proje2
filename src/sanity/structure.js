@@ -1,13 +1,9 @@
-// https://www.sanity.io/docs/structure-builder-cheat-sheet
+// src/sanity/structure.js
+
+// Bu kod: "Şemada ne varsa onu listele" der.
+// Bizde sadece Post ve Category kaldığı için otomatik onları gösterir, hata vermez.
+
 export const structure = (S) =>
   S.list()
-    .title('Blog')
-    .items([
-      S.documentTypeListItem('post').title('Posts'),
-      S.documentTypeListItem('category').title('Categories'),
-      S.documentTypeListItem('author').title('Authors'),
-      S.divider(),
-      ...S.documentTypeListItems().filter(
-        (item) => item.getId() && !['post', 'category', 'author'].includes(item.getId()),
-      ),
-    ])
+    .title('İçerik Yönetimi') // Sol üstteki başlık
+    .items(S.documentTypeListItems());
