@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://osmanozkaya.av.tr/sitemap.xml
