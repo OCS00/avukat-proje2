@@ -3,6 +3,7 @@ export const siteConfig = {
   name: "Av. Osman Özkaya",
   title: "Hukuk & Stratejik Danışmanlık",
   description: "Mersin merkezli; Ceza, Aile ve Ticaret hukuku alanında kişiye özel avukatlık hizmetleri.",
+  url: "https://osmanozkaya.av.tr",
   
   // FOTOĞRAF (Public klasöründeki resim)
   profileImage: "/avukat.jpg", 
