@@ -10,8 +10,8 @@ export const siteConfig = {
   
   // İLETİŞİM BİLGİLERİ (Mersin Adliyesi lokasyonlu prestijli bir adres uydurdum)
   phone: "+90 (545) 932 00 15",
-  email: "info@osmanozkaya.com",
-  address: "Çankaya Mah. İstiklal Cad. No:111, Mersin Adliyesi Yanı, Akdeniz/Mersin",
+  email: "av.osmanozkaya@gmail.com",
+  address: "İhsaniye Mahallesi Bahçeler Cad. No: 22 Royal Ofis İş Merkezi Kat: 11, No: 131  Akdeniz/Mersin",
   
   // FORM BAĞLANTISI (Burası aynı kalabilir veya kendi sheetdb linkinle değişirsin)
   sheetDbUrl: "https://sheetdb.io/api/v1/d3159gh4lnd5e",

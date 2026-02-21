@@ -31,7 +31,7 @@ export default function UzmanliklarPage() {
 
   return (
     <main className="bg-[#0f172a] min-h-screen text-gray-300 selection:bg-[#c5a47e] selection:text-[#0f172a]">
-      <Navbar />
+      
 
       {/* 1. HERO & SEARCH SECTION */}
       <section className="pt-40 pb-20 px-4 bg-[#0b1120] border-b border-gray-800 relative overflow-hidden">
@@ -220,8 +220,7 @@ export default function UzmanliklarPage() {
         </div>
       </section>
 
-      <Footer />
-      <WhatsAppBtn />
+      
     </main>
   );
 }

@@ -23,7 +23,7 @@ export default async function BlogPage() {
 
   return (
     <main className="bg-[#0f172a] min-h-screen text-gray-300 selection:bg-[#c5a47e] selection:text-[#0f172a]">
-      <Navbar />
+     
 
       {/* HERO SECTION */}
       <section className="pt-40 pb-16 px-4 bg-[#0b1120] border-b border-gray-800">
@@ -89,8 +89,7 @@ export default async function BlogPage() {
         </div>
       </div>
 
-      <WhatsAppBtn />
-      <Footer />
+      
     </main>
   );
 }

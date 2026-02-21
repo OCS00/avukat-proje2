@@ -33,7 +33,7 @@ export default function ServiceDetail({ params }) {
 
   return (
     <main className="bg-[#0f172a] min-h-screen text-gray-300 selection:bg-[#c5a47e] selection:text-[#0f172a]">
-      <Navbar />
+      
 
       {/* 1. HERO BÖLÜMÜ (Büyük Görsel) */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
@@ -197,8 +197,7 @@ export default function ServiceDetail({ params }) {
         </Link>
       </section>
 
-      <Footer />
-      <WhatsAppBtn />
+      
     </main>
   );
 }

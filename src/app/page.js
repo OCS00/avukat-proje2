@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <main className="bg-[#050914] min-h-screen selection:bg-[#c5a47e] selection:text-[#0f172a]" ref={containerRef}>
-      <Navbar />
+     
       
       {/* 1. SPOTLIGHT HERO SECTION */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
@@ -207,10 +207,7 @@ export default function Home() {
             İletişime Geç <ArrowUpRight />
           </Link>
         </div>
-      </section>
-
-      <Footer />
-      <WhatsAppBtn />
+      </section>    
     </main>
   );
 }

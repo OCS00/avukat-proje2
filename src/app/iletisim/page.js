@@ -10,7 +10,7 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 export default function IletisimPage() {
   return (
     <main className="bg-[#0f172a] min-h-screen text-gray-300">
-      <Navbar />
+     
 
       <div className="pt-32 pb-12 bg-[#0b1120] text-center">
         <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white mb-4">İletişime Geçin</h1>
@@ -51,8 +51,7 @@ export default function IletisimPage() {
         <Faq />
       </div>
 
-      <Footer />
-      <WhatsAppBtn />
+      
     </main>
   );
 }
