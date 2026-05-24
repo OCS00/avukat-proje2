@@ -4,7 +4,6 @@ import { RefreshCcw } from "lucide-react";
 
 export default function Error({ error, reset }) {
   useEffect(() => {
-    // Hatayı konsola yazdır (Geliştirici görsün)
     console.error(error);
   }, [error]);
 
@@ -16,7 +15,7 @@ export default function Error({ error, reset }) {
       <p className="text-gray-400 mb-8 max-w-md">
         Sistemlerimizde geçici bir teknik aksaklık yaşanıyor. Lütfen sayfayı yenilemeyi deneyin.
       </p>
-      
+
       <button
         onClick={() => reset()}
         className="flex items-center gap-2 border border-[#c5a47e] text-[#c5a47e] px-6 py-3 rounded-sm font-bold uppercase tracking-widest hover:bg-[#c5a47e] hover:text-[#0f172a] transition-all"

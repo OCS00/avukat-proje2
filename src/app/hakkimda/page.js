@@ -58,6 +58,24 @@ export default function HakkimdaPage() {
         </div>
       </section>
 
+      {/* Kimlik Şeridi */}
+      <div className="bg-[#0b1120] border-y border-gray-800/30">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="flex flex-wrap justify-center gap-10 md:gap-24">
+            {[
+              { label: "Mersin Barosu", sub: "Kayıtlı Üye" },
+              { label: "Ceza · Aile · Ticaret", sub: "Uzmanlık Alanları" },
+              { label: "Türkiye Geneli", sub: "Hukuki Temsil" },
+            ].map((item, idx) => (
+              <div key={idx} className="text-center">
+                <p className="text-white font-playfair font-bold text-xl">{item.label}</p>
+                <p className="text-[#c5a47e] text-xs uppercase tracking-widest mt-1">{item.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* 2. YENİ: MESLEKİ İLKELERİM (Güven Aşılayan Grid Yapısı) */}
       <section className="py-24 bg-[#0b1120] border-y border-gray-800/50">
         <div className="max-w-7xl mx-auto px-4">

@@ -1,25 +1,24 @@
 import { servicesData } from "@/data/servicesData";
-import { client } from "@/sanity/client";
+import { connectToDatabase } from "@/lib/db";
+import Post from "@/models/Post";
+import { siteConfig } from "@/data/siteConfig";
 
 export default async function sitemap() {
-  const baseUrl = "https://osmanozkaya.av.tr"; // Senin gerçek alan adın
+  const baseUrl = siteConfig.url;
 
-  // Blog yazılarını çek
-  const posts = await client.fetch(`*[_type == "post"]{ "slug": slug.current, publishedAt }`);
+  await connectToDatabase();
+  const posts = await Post.find({}, { slug: 1, publishedAt: 1 }).lean();
 
-  // Statik Sayfalar
   const routes = ["", "/hakkimda", "/iletisim", "/blog", "/uzmanliklar"].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
   }));
 
-  // Uzmanlık Sayfaları
   const services = servicesData.map((service) => ({
     url: `${baseUrl}/uzmanliklar/${service.slug}`,
     lastModified: new Date(),
   }));
 
-  // Blog Sayfaları
   const blogPosts = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.publishedAt),

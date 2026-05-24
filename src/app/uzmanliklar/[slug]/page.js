@@ -1,9 +1,6 @@
 import { notFound } from "next/navigation";
 import { servicesData } from "@/data/servicesData";
 import { siteConfig } from "@/data/siteConfig";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppBtn from "@/components/WhatsAppBtn";
 import Link from "next/link";
 import { 
   ArrowRight, Phone, CheckCircle2, ChevronRight, 
@@ -31,9 +28,44 @@ export default function ServiceDetail({ params }) {
 
   const otherServices = servicesData.filter(s => s.slug !== params.slug);
 
+  const legalServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": `${service.title} - ${siteConfig.name}`,
+    "description": service.shortDesc,
+    "url": `${siteConfig.url}/uzmanliklar/${service.slug}`,
+    "provider": {
+      "@type": "LegalService",
+      "@id": `${siteConfig.url}/#business`,
+      "name": siteConfig.name,
+    },
+    "areaServed": { "@type": "Country", "name": "Türkiye" },
+  };
+
+  const faqSchema = service.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": service.faq.map((item) => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": { "@type": "Answer", "text": item.a },
+        })),
+      }
+    : null;
+
   return (
     <main className="bg-[#0f172a] min-h-screen text-gray-300 selection:bg-[#c5a47e] selection:text-[#0f172a]">
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(legalServiceSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       {/* 1. HERO BÖLÜMÜ (Büyük Görsel) */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">

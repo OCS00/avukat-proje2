@@ -1,57 +1,52 @@
 "use client";
-import Navbar from "@/components/Navbar";
-import Contact from "@/components/Contact"; // Daha önce yazdığımız form
-import Faq from "@/components/Faq"; // SSS
-import Footer from "@/components/Footer";
-import WhatsAppBtn from "@/components/WhatsAppBtn";
-import { siteConfig } from "@/data/siteConfig";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { motion } from "framer-motion";
+import Contact from "@/components/Contact";
+import Faq from "@/components/Faq";
 
 export default function IletisimPage() {
   return (
     <main className="bg-[#0f172a] min-h-screen text-gray-300">
-     
 
-      <div className="pt-32 pb-12 bg-[#0b1120] text-center">
-        <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white mb-4">İletişime Geçin</h1>
-        <p className="text-gray-400">Sorularınız için bizimle her zaman irtibata geçebilirsiniz.</p>
-      </div>
+      {/* HERO */}
+      <section className="pt-40 pb-28 bg-[#0b1120] text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#c5a47e]/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent to-[#c5a47e]/30" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-           {/* Hızlı İletişim Kartları */}
-           <div className="bg-[#1e293b] p-8 rounded-sm border border-gray-800 text-center hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-12 h-12 bg-[#0f172a] rounded-full flex items-center justify-center text-[#c5a47e] mx-auto mb-4"><Phone/></div>
-              <h3 className="text-white font-bold font-playfair text-xl mb-2">Telefon</h3>
-              <p className="text-gray-400 text-sm mb-4">Hafta içi 09:00 - 18:00</p>
-              <a href={`tel:${siteConfig.phone}`} className="text-[#c5a47e] font-bold hover:underline">{siteConfig.phone}</a>
-           </div>
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center gap-2 border border-[#c5a47e]/30 px-4 py-2 rounded-full mb-10 bg-[#c5a47e]/5">
+              <span className="w-2 h-2 bg-[#c5a47e] rounded-full animate-pulse" />
+              <span className="text-[#c5a47e] text-xs font-bold uppercase tracking-[0.2em]">Ücretsiz İlk Görüşme</span>
+            </div>
 
-           <div className="bg-[#1e293b] p-8 rounded-sm border border-gray-800 text-center hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-12 h-12 bg-[#0f172a] rounded-full flex items-center justify-center text-[#c5a47e] mx-auto mb-4"><Mail/></div>
-              <h3 className="text-white font-bold font-playfair text-xl mb-2">E-Posta</h3>
-              <p className="text-gray-400 text-sm mb-4">7/24 Mail Gönderebilirsiniz</p>
-              <a href={`mailto:${siteConfig.email}`} className="text-[#c5a47e] font-bold hover:underline">{siteConfig.email}</a>
-           </div>
+            <h1 className="text-5xl md:text-8xl font-playfair font-bold text-white mb-8 leading-[0.9]">
+              İlk Adımı <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c5a47e] via-[#e8d5b5] to-[#c5a47e]">
+                Birlikte Atalım.
+              </span>
+            </h1>
 
-           <div className="bg-[#1e293b] p-8 rounded-sm border border-gray-800 text-center hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-12 h-12 bg-[#0f172a] rounded-full flex items-center justify-center text-[#c5a47e] mx-auto mb-4"><MapPin/></div>
-              <h3 className="text-white font-bold font-playfair text-xl mb-2">Ofis</h3>
-              <p className="text-gray-400 text-sm mb-4">Mersin Adliyesi Yanı</p>
-              <span className="text-[#c5a47e] font-bold cursor-pointer hover:underline">Yol Tarifi Al</span>
-           </div>
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+              Hukuki durumunuzu bize anlatın.{" "}
+              <strong className="text-white">24 saat içinde</strong>{" "}
+              net bir değerlendirme yapıyoruz. İlk görüşme ücretsizdir.
+            </p>
+          </motion.div>
         </div>
+      </section>
 
-        {/* Form Alanı */}
-        <div className="mb-20">
-           <Contact />
-        </div>
+      {/* FORM */}
+      <Contact />
 
-        {/* SSS */}
+      {/* SSS */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <Faq />
       </div>
 
-      
     </main>
   );
 }

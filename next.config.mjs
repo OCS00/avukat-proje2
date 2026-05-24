@@ -4,11 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com', // Tasarım resimleri
+        hostname: 'images.unsplash.com',
       },
       {
         protocol: 'https',
-        hostname: 'cdn.sanity.io', // Blog resimleri
+        hostname: 'res.cloudinary.com',
       },
     ],
   },

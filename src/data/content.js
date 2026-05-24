@@ -1,6 +1,7 @@
 // src/data/content.js
 import { FileSearch, Scale, CheckCircle2 } from "lucide-react";
 
+
 // 1. SIKÇA SORULAN SORULAR (FAQ)
 export const faqs = [
   {
@@ -40,29 +41,7 @@ export const reviews = [
   }
 ];
 
-// 3. EKİBİMİZ (TEAM)
-export const team = [
-  {
-    name: "Av. Ahmet Yılmaz",
-    title: "Kurucu Ortak",
-    image: "/avukat.jpg", 
-    bio: "Ceza hukuku ve Ticaret hukuku alanında 15 yıllık deneyim."
-  },
-  {
-    name: "Av. Zeynep Demir",
-    title: "Kıdemli Avukat",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
-    bio: "Aile hukuku ve Boşanma davalarında uzmanlaşmıştır."
-  },
-  {
-    name: "Stj. Av. Caner Erkin",
-    title: "Yasal Stajyer",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
-    bio: "İcra ve İflas hukuku departmanında görev almaktadır."
-  }
-];
-
-// 4. ÇALIŞMA SÜRECİ (PROCESS)
+// 3. ÇALIŞMA SÜRECİ (PROCESS)
 export const processSteps = [
   {
     title: "1. Ön Görüşme ve Analiz",

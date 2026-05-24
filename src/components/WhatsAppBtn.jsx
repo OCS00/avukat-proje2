@@ -11,7 +11,7 @@ const WhatsAppIcon = () => (
 
 export default function WhatsAppBtn() {
   const message = "Merhaba, hukuki danışmanlık almak istiyorum.";
-  const link = `https://wa.me/${siteConfig.phone.replace(/\s+/g, '')}?text=${encodeURIComponent(message)}`;
+  const link = `https://wa.me/${siteConfig.phoneLink}?text=${encodeURIComponent(message)}`;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 group">

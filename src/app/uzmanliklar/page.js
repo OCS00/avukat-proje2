@@ -1,19 +1,16 @@
 "use client";
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppBtn from "@/components/WhatsAppBtn";
-import { servicesData } from "@/data/servicesData"; // Mevcut veri dosyan
+import { servicesData } from "@/data/servicesData";
+import { siteConfig } from "@/data/siteConfig";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ArrowRight, Search, Gavel, FileText, Scale, 
-  ShieldCheck, MessageSquare, ChevronDown, CheckCircle2 
+import {
+  ArrowRight, Search, Gavel, FileText,
+  MessageSquare, ChevronDown, CheckCircle2
 } from "lucide-react";
 
 export default function UzmanliklarPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeTab, setActiveTab] = useState("Tümü");
   const [openFaq, setOpenFaq] = useState(null);
 
   // Arama Fonksiyonu
@@ -68,23 +65,6 @@ export default function UzmanliklarPage() {
       {/* 2. TAB MENÜ & KARTLAR */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         
-        {/* Kategoriler (Görsel Filtreleme - Şu an hepsi aktif) */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {["Tümü", "Bireysel Hukuk", "Kurumsal Danışmanlık", "Uluslararası"].map((tab) => (
-            <button 
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide transition-all ${
-                activeTab === tab 
-                  ? "bg-[#c5a47e] text-[#0f172a]" 
-                  : "bg-[#1e293b] text-gray-400 hover:text-white hover:bg-[#2d3b4e]"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-
         {/* Servis Izgarası */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence>
@@ -213,9 +193,9 @@ export default function UzmanliklarPage() {
              <Link href="/iletisim" className="bg-[#c5a47e] text-[#0f172a] px-8 py-3 rounded-sm font-bold uppercase tracking-widest hover:bg-white transition-all">
                Randevu Al
              </Link>
-             <Link href="https://wa.me/905555555555" className="border border-white text-white px-8 py-3 rounded-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#0f172a] transition-all">
+             <a href={`https://wa.me/${siteConfig.phoneLink}`} target="_blank" rel="noopener noreferrer" className="border border-white text-white px-8 py-3 rounded-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#0f172a] transition-all">
                WhatsApp Destek
-             </Link>
+             </a>
           </div>
         </div>
       </section>

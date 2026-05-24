@@ -10,6 +10,7 @@ export const siteConfig = {
   
   // İLETİŞİM BİLGİLERİ (Mersin Adliyesi lokasyonlu prestijli bir adres uydurdum)
   phone: "+90 (545) 932 00 15",
+  phoneLink: "905459320015",
   email: "av.osmanozkaya@gmail.com",
   address: "İhsaniye Mahallesi Bahçeler Cad. No: 22 Royal Ofis İş Merkezi Kat: 11, No: 131  Akdeniz/Mersin",
   

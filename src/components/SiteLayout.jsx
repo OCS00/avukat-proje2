@@ -3,20 +3,24 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppBtn from "@/components/WhatsAppBtn";
+import ScrollProgress from "@/components/ui/ScrollProgress";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 import { siteConfig } from "@/data/siteConfig";
 import { Phone, MessageCircle } from "lucide-react";
 
 export default function SiteLayout({ children }) {
   const pathname = usePathname();
   
-  // EĞER ADRES '/studio' İLE BAŞLIYORSA SADECE İÇERİĞİ GÖSTER (NAVBAR YOK)
-  if (pathname && pathname.startsWith("/studio")) {
+  // EĞER ADRES '/admin' İLE BAŞLIYORSA SADECE İÇERİĞİ GÖSTER (NAVBAR YOK)
+  if (pathname && pathname.startsWith("/admin")) {
     return <>{children}</>;
   }
 
   // DEĞİLSE NORMAL SİTEYİ GÖSTER
   return (
     <>
+      <ScrollProgress />
+      <ScrollToTop />
       <Navbar />
       
       <main className="flex flex-col min-h-screen">
